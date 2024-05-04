@@ -6,6 +6,24 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="container-form-add">
+        <form>
+            <h2>Agregar</h2>
+            <label for="doceId">Numero de Cedula:</label>
+            <input type="number" name="doceId" id="doceId" required>
+            <label for="doceName">Nombre: </label>
+            <input type="text" id="doceName" required>
+            <label for="doceLastName">Apellido: </label>
+            <input type="text" id="doceLastName" required>
+            <label for="doceEmail">Email: </label>
+            <input type="email" id="doceEmail"  required>
+            <label for="doceBirth">Cumpleaños: </label>
+            <input type="date" id="doceBirth" required>
+            <label for="doceCel">Telefono: </label>
+            <input type="text" id="doceCel" required>
+        </form>
+        <button id="addBtn">Agregar</button>
+    </div>
     <div class="container-table">
         <table>
             <thead>
@@ -21,5 +39,6 @@
             </tbody>
         </table>
     </div> 
+    <script src="/public/js/app.js"></script>
 </body>
 </html>
