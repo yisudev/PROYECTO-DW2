@@ -48,4 +48,60 @@ function showDocente() {
     document.getElementById('table-body').innerHTML = tr; //hacemos una alteracion del html y pasamos lo que guardamos en tr
 }
 
+//funcion para pasar los datos al formulario de editar 
+function editFormsDocente(e){  //recibimos de parametro un evento 
+    addFormDoce.classList.toggle( 'hidden');
+    editFormsDocente.classList.toggle('hidden');
+    backBtnFormDoce.classlist.toggle('hidden');
+    const doceIdInput = e.target.getAttribute('data-id'); // vemos el target del evento y obtenemos el data id
+    docentes.forEach((d) => {//recordemos el arreglo con una variable d
+        if (d.doceId == doceIdInput) { // verificamos si el doceID es igual al doceInput que agarramos del data id
+            document.getElementById('doceIdEdit').value = d.doceId;// guardamos en los input los valores de cada rato del arreglo
+            document.getElementById('doceNameEdit').value = d.doceName;
+            document.getElementById('doceLastNameEdit').value =d.doceLastName;
+            document.getElementById('doceEmailEdit').value = d.doceEmail;
+            document.getElementById('doceBirthEdit').value = d.doceBirth
+            document.getElementById('doceCelEdit').value = d.doceCel;
+        }
+     })
+}     
+
+
+function editDocente () {
+    const doceIdInput = document.getElementById('doceIdEdit').value; // obtenemos el value de doceId para saber que editamos 
+    docentes.forEach((d)) => { //volvemos a recorrer el arreglo 
+        if (d.doceId == doceIdInput) {//verificamos si doceId es igual al valor que recuperamos de doceId
+            d.doceName = document.getElementById('doceNameEdit').value; //guardamos en los datos del arreglo los valores de los input 
+            d.doceLastName = document.getElementById('doceLastNameEdit').value;
+            d.doceEmail = document.getElementById('doceEmailEdit').value;
+            d.doceBirth = document.getElementById('doceBirthEdit').value;
+            d.doceCel = document.getElementById('doceCelEdit').value;
+
+        }
+  })
+  localStorage.setItem('docentes', JSON.stringify(docentes)); // guardamos en el local storage el arreglo modificado
+  showDocente();//mostramos la tabla de docentes
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+    }  )
+
+
+
+
+
+}
+
 addBtn.addEventListener('click', addDocente);
