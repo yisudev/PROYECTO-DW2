@@ -1,31 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <title>CRUD GRUPO</title>
 </head>
 <body>
-    <div class="container-form-add">
-        <form>
-            <h2>Agregar</h2>
-            <label for="doceId">Numero de Cedula:</label>
-            <input type="number" name="doceId" id="doceId" required>
-            <label for="doceName">Nombre: </label>
-            <input type="text" id="doceName" required>
-            <label for="doceLastName">Apellido: </label>
-            <input type="text" id="doceLastName" required>
-            <label for="doceEmail">Email: </label>
-            <input type="email" id="doceEmail"  required>
-            <label for="doceBirth">Cumpleaños: </label>
-            <input type="date" id="doceBirth" required>
-            <label for="doceCel">Telefono: </label>
-            <input type="text" id="doceCel" required>
+    <button id="atras" class="hidden btn btn-secondary">Atrás</button>
+    <div class="container-form-add container mt-5">
+        <form class="card-body">
+            <h2 class="mb-4">Agregar</h2>
+            <div class="mb-3">
+                <label for="doceId" class="form-label">Numero de Cedula:</label>
+                <input type="number" class="form-control" id="doceId" required>
+            </div>
+            <div class="mb-3">
+                <label for="doceName" class="form-label">Nombre: </label>
+                <input type="text" class="form-control" id="doceName" required>
+            </div>
+            <div class="mb-3">
+                <label for="doceLastName" class="form-label">Apellido: </label>
+                <input type="text" class="form-control" id="doceLastName" required>
+            </div>
+            <div class="mb-3">
+                <label for="doceEmail" class="form-label">Email: </label>
+                <input type="email" class="form-control" id="doceEmail" required>
+            </div>
+            <div class="mb-3">
+                <label for="doceBirth" class="form-label">Cumpleaños: </label>
+                <input type="date" class="form-control" id="doceBirth" required>
+            </div>
+            <div class="mb-3">
+                <label for="doceCel" class="form-label">Telefono: </label>
+                <input type="text" class="form-control" id="doceCel" required>
+            </div>
+            
         </form>
-        <button id="addBtn">Agregar</button>
+        <button  class="btn btn-primary" id="addBtn">Agregar</button>
     </div>
-    <div class="container-table">
-        <table>
+    
+    <div class="container-form-edit hidden">
+        <form class="card-body">
+            <h2 class="mb-4">EDITANDO</h2>
+            <input type="hidden" name="doceIdEdit" id="doceIdEdit" required>
+            <div class="mb-3">
+                <label for="doceNameEdit" class="form-label">Nombre: </label>
+                <input type="text" class="form-control" id="doceNameEdit" required>
+            </div>
+            <div class="mb-3">
+                <label for="doceLastNameEdit" class="form-label">Apellido: </label>
+                <input type="text" class="form-control" id="doceLastNameEdit" required>
+            </div>
+            <div class="mb-3">
+                <label for="doceEmailEdit" class="form-label">Email: </label>
+                <input type="email" class="form-control" id="doceEmailEdit" required>
+            </div>
+            <div class="mb-3">
+                <label for="doceBirthEdit" class="form-label">Cumpleaños: </label>
+                <input type="date" class="form-control" id="doceBirthEdit" required>
+            </div>
+            <div class="mb-3">
+                <label for="doceCelEdit" class="form-label">Telefono: </label>
+                <input type="text" class="form-control" id="doceCelEdit" required>
+            </div>
+            <button class="btn btn-primary" id="editBtn">Editar</button>
+        </form>
+    </div>
+    
+    <div class="container container-table-profe">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -36,9 +81,81 @@
                 </tr>
             </thead>
             <tbody id="table-body">
+                <!-- Aquí puedes agregar filas dinámicamente con JavaScript si lo necesitas -->
             </tbody>
         </table>
-    </div> 
-    <script src="/public/js/app.js"></script>
+    </div>
+    
+<!-- Ajustes en los IDs y clases de los elementos HTML -->
+<div class="container add-container-mate hidden">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form>
+                <h2>Agregar</h2>
+                <div class="form-group">
+                    <label for="mateID">ID:</label>
+                    <input type="text" class="form-control" id="mateID" required>
+                </div>
+                <div class="form-group">
+                    <label for="mateName">Nombre:</label>
+                    <input type="text" class="form-control" id="mateName" required>
+                </div>
+                <div class="form-group">
+                    <label for="mateCodi">Código:</label>
+                    <input type="text" class="form-control" id="mateCodi" required>
+                </div>
+                <div class="form-group">
+                    <label for="mateAno">Año:</label>
+                    <input type="number" class="form-control" id="mateAno" required>
+                </div>
+                <button class="btn btn-primary" id="addBtnMate">Agregar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container container-form-edit-mate hidden">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form>
+                <h2>EDITANDO</h2>
+                <input type="hidden" name="mateIDEdit" id="mateIDEdit" required>
+                <div class="form-group">
+                    <label for="mateNameEdit">Nombre:</label>
+                    <input type="text" class="form-control" id="mateNameEdit" required>
+                </div>
+                <div class="form-group">
+                    <label for="mateCodiEdit">Código:</label>
+                    <input type="text" class="form-control" id="mateCodiEdit" required>
+                </div>
+                <div class="form-group">
+                    <label for="mateAnoEdit">Año:</label>
+                    <input type="number" class="form-control" id="mateAnoEdit" required>
+                </div>
+            </form>
+            <button class="btn btn-primary" id="editBtnMate">Editar</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="container-table-materia">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Código</th>
+                    <th>Año</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="table-body-materia">
+                <!-- Aquí se insertarán dinámicamente las filas de la tabla -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+    <script src="./public/js/app.js"></script>
+    <script src="/public/js/materias.js"></script>
 </body>
 </html>
