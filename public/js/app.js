@@ -14,6 +14,7 @@ const backBtnFormDoce = document.getElementById('atras');
 const editFormDoce =document.getElementsByClassName('container-form-edit')[0];
 const editFormMateEdit = document.getElementsByClassName('container-form-edit-mate')[0];
 const addContainerMate = document.getElementsByClassName('add-container-mate')[0];
+const contarinerTableMate  = document.getElementsByClassName('container-table-mate')[0];
 /* Funcion añadir docente a la lista */
 function addDocente() {
     docentes.push({ //guardamos en el arreglo los valores de los datos del formulario
@@ -116,6 +117,7 @@ function eventosDocente() {
             docente = doceId; // Actualizar la variable global docente con el doceId específico de la fila
             console.log("Valor actual de docente:", docente); // Opcional: Mostrar el valor actual de docente en la consola
             addContainerMate.classList.toggle('hidden')
+            contarinerTableMate.classList.toggle('hidden')
             showMate();
         });
     });
@@ -189,6 +191,7 @@ function showMate() {
 }
 
 function editFormMate(e) {
+    addContainerMate.classList.toggle('hidden')
 	editFormMateEdit.classList.toggle('hidden')
     const mateIdInput = e.target.getAttribute('data-id');
     materias.forEach((m) => {
