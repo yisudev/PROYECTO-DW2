@@ -4,3 +4,28 @@
 .show{
     display: inherit;
 }
+body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.container-form-add, .container-form-edit, .container-table-profe, .add-container-mate, .container-form-edit-mate, .container-table-mate {
+    background-color: #333333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+}
+
+.table {
+    color: #ffffff;
+}
